@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menu_fragment">
+
+    <fragment
+        android:id="@+id/menu_fragment"
+        android:name="com.example.pesaai.view.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu">
+
+        <action
+            android:id="@+id/action_menu_to_fazendas"
+            app:destination="@id/all_fazendas_fragment" />
+        <action
+            android:id="@+id/action_menu_to_pesagens"
+            app:destination="@id/all_pesagens_fragment" />
+        <action
+            android:id="@+id/action_menu_to_pesar"
+            app:destination="@id/all_fazendas_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/all_fazendas_fragment"
+        android:name="com.example.pesaai.view.AllFazendasFragment"
+        android:label="Fazendas"
+        tools:layout="@layout/fragment_all_fazendas">
+
+        <action
+            android:id="@+id/action_fazendas_to_fazenda_form"
+            app:destination="@id/fazenda_fragment" />
+        <action
+            android:id="@+id/action_fazendas_to_pesar"
+            app:destination="@id/pesar_fragment" />
+        <argument
+            android:name="origem"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/all_pesagens_fragment"
+        android:name="com.example.pesaai.view.AllPesagensFragment"
+        android:label="Pesagens"
+        tools:layout="@layout/fragment_all_pesagens" >
+        <action
+            android:id="@+id/action_pesagens_to_pesar"
+            app:destination="@id/pesar_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pesar_fragment"
+        android:name="com.example.pesaai.view.PesarFragment"
+        android:label="Pesar"
+        tools:layout="@layout/fragment_pesar" >
+        <argument
+            android:name="fazenda"
+            app:argType="com.example.pesaai.service.model.Fazenda"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fazenda_fragment"
+        android:name="com.example.pesaai.view.FazendaFragment"
+        android:label="fragment_fazendas"
+        tools:layout="@layout/fragment_fazenda" >
+        <argument
+            android:name="fazenda"
+            app:argType="com.example.pesaai.service.model.Fazenda"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_fazenda_form_to_fazendas"
+            app:destination="@id/all_fazendas_fragment" />
+    </fragment>
+</navigation>

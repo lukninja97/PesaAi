@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/drawable/ic_arroba.xml" value="0.36203703703703705" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/drawable/ic_coww.xml" value="0.2921875" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/drawable/ic_dono.xml" value="0.36574074074074076" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/drawable/ic_location.xml" value="0.36574074074074076" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/drawable/ic_tag.xml" value="0.36203703703703705" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/drawable/repeat.xml" value="0.36574074074074076" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/activity_main.xml" value="0.2740036231884058" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/content_main.xml" value="0.2760416666666667" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_all_fazendas.xml" value="0.33" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_all_pesagens.xml" value="0.27525252525252525" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_fazenda.xml" value="0.33" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_fazendas.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_first.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_mapa.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_menu.xml" value="0.24537037037037038" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_pesagens.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_pesar.xml" value="0.25" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_second.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/fragment_splash_screen.xml" value="0.2753623188405797" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/row_bois.xml" value="0.33" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/row_fazenda.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/row_pesados.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/row_pesagem.xml" value="0.33796296296296297" />
+        <entry key="..\:/Users/Lucas Souto/AndroidStudioProjects/PesaAi/app/src/main/res/layout/row_pesagens.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

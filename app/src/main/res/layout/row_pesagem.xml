@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image_pesagens"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/pesagensc"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:id="@+id/text_fazenda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/image_pesagens"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="5dp"
+        android:text="Fazenda"
+        android:textSize="16sp"
+        android:textColor="?attr/colorPrimary"/>
+
+    <ImageView
+        android:id="@+id/ic_local"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_location"
+        app:layout_constraintStart_toEndOf="@+id/image_pesagens"
+        app:layout_constraintTop_toBottomOf="@+id/text_fazenda" />
+
+    <TextView
+        android:id="@+id/text_local"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/ic_local"
+        app:layout_constraintTop_toTopOf="@+id/ic_local"
+        app:layout_constraintBottom_toBottomOf="@+id/ic_local"
+        android:text="Local"
+        android:textSize="12sp"
+        android:textColor="?attr/colorPrimary"/>
+
+    <ImageView
+        android:id="@+id/id_dono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/image_pesagens"
+        app:layout_constraintTop_toBottomOf="@+id/ic_local"
+        android:src="@drawable/ic_dono" />
+
+    <TextView
+        android:id="@+id/text_dono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/id_dono"
+        app:layout_constraintTop_toTopOf="@+id/id_dono"
+        app:layout_constraintBottom_toBottomOf="@+id/id_dono"
+        android:text="Proprietário"
+        android:textSize="12sp"
+        android:textColor="?attr/colorPrimary"/>
+
+    <ImageView
+        android:id="@+id/ic_data_pesagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/image_pesagens"
+        app:layout_constraintTop_toBottomOf="@+id/id_dono"
+        android:src="@drawable/ic_dono" />
+
+    <TextView
+        android:id="@+id/text_data_pesagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/ic_data_pesagem"
+        app:layout_constraintTop_toTopOf="@+id/ic_data_pesagem"
+        app:layout_constraintBottom_toBottomOf="@+id/ic_data_pesagem"
+        android:text="Data Pesagem"
+        android:textSize="12sp"
+        android:textColor="?attr/colorPrimary"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_pesagens"
+        android:background="@drawable/grass"
+        android:scaleX="100"
+        android:layout_marginTop="-18dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
