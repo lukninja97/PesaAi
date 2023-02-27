@@ -8,10 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isNotEmpty
-import androidx.databinding.ObservableField
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
@@ -30,8 +27,8 @@ import kotlin.collections.ArrayList
 
 class PesarFragment : Fragment() {
 
-    private lateinit var mViewModel: PesagemViewModel
-    private lateinit var mBoiViewModel: BoiViewModel
+    private val mViewModel: PesagemViewModel by viewModels()
+    private val mBoiViewModel: BoiViewModel by viewModels()
     private lateinit var mAdapter: BoiAdapter
 
     private val args: PesarFragmentArgs by navArgs()
@@ -39,48 +36,52 @@ class PesarFragment : Fragment() {
     private var _binding: FragmentPesarBinding? = null
     private val binding: FragmentPesarBinding get() = _binding!!
 
-    private val mBoiList = MutableLiveData<List<Boi>>()
-    val boiList: LiveData<List<Boi>> = mBoiList
-
     private var bois: ArrayList<Boi> = arrayListOf()
-    private var pesototal: Float = 0F
-    private var arrobatotal: Float = 0F
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        mViewModel = ViewModelProvider(this).get(PesagemViewModel::class.java)
-        mBoiViewModel = ViewModelProvider(this).get(BoiViewModel::class.java)
-
         _binding = FragmentPesarBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        binding.apply {
-            buttonPesar.setOnClickListener { handlePesar() }
-            buttonFinalizar.setOnClickListener { handleFinalizar() }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-            textFazenda.setText(args.fazenda?.nome)
-            textLocal.setText(args.fazenda?.local)
-            textDono.setText(args.fazenda?.dono)
-            editDataPesagem.editText?.setText(getDataAtual())
+        setupScreen()
+        setupAdapter()
+        mViewModel.loadBois(id)
+        observe()
+    }
+
+    private fun setupScreen() = with(binding) {
+        listeners()
+
+        args.fazenda?.also { farm ->
+            textFazenda.text = farm.nome
+            textLocal.text = farm.local
+            textDono.text = farm.dono
         }
+        editDataPesagem.editText?.setText(getDataAtual())
+    }
 
-        mAdapter = BoiAdapter(mViewModel.boiList.value){}
+    private fun listeners() = with(binding) {
+        buttonPesar.setOnClickListener { handleBalance() }
+        buttonFinalizar.setOnClickListener { handleFinishBalance() }
+    }
+
+    private fun setupAdapter() {
+        mAdapter = BoiAdapter(mViewModel.boiList.value) {}
 
         val recycler = binding.listPesados
         recycler.layoutManager = LinearLayoutManager(context)
         recycler.adapter = mAdapter
-
-        mViewModel.loadBois(id)
-
-        observe()
-
-        return binding.root
     }
 
-    private fun handlePesar(){
+    private fun handleBalance() {
         binding.apply {
-            if (editBrinco.isNotEmpty() && editPeso.isNotEmpty()){
+            if (editBrinco.isNotEmpty() && editPeso.isNotEmpty()) {
                 val boi = Boi(
                     brinco = editBrinco.editText?.text.toString(),
                     peso = editPeso.editText?.text.toString().toFloat(),
@@ -88,8 +89,8 @@ class PesarFragment : Fragment() {
                 )
                 bois.add(boi)
 
-                pesototal = 0F
-                arrobatotal = 0F
+                var pesototal = 0F
+                var arrobatotal = 0F
 
                 bois.forEach {
                     pesototal += it.peso
@@ -98,10 +99,9 @@ class PesarFragment : Fragment() {
                     println("pesototal${pesototal} arrobatotal${arrobatotal}")
                 }
 
-                textQuantidade.setText(bois.count().toString())
-                textPesoMedio.setText((pesototal / bois.count()).toString())
-                textArrobaMedia.setText((arrobatotal / bois.count()).toString())
-
+                textQuantidade.text = bois.count().toString()
+                textPesoMedio.text = (pesototal / bois.count()).toString()
+                textArrobaMedia.text = (arrobatotal / bois.count()).toString()
 
                 println("boi${bois}")
 
@@ -110,67 +110,63 @@ class PesarFragment : Fragment() {
                 editBrinco.editText?.text?.clear()
                 editBrinco.editText?.focusable
                 editPeso.editText?.text?.clear()
-
-            }else{
+            } else {
                 Toast.makeText(context, "Preencha o brinco e o peso", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 
-    private fun handleFinalizar(){
-        binding.apply {
-            args.fazenda?.also {
-                val pesagem = Pesagem(
-                    fazenda = it.id,
-                    data = editDataPesagem.editText?.text.toString(),
-                    funcionario = editFuncionario.editText?.text.toString(),
-                    finalidade = editFinalidade.editText?.text.toString(),
-                    qntTotal = textQuantidade.text.toString().toInt(),
-                    pesoMedio = textPesoMedio.text.toString().toFloat(),
-                    arrobaMedia = textArrobaMedia.text.toString().toFloat(),
-                    listBois = arrayListOf(bois.toString())
-                )
+    private fun handleFinishBalance() = with(binding) {
+        args.fazenda?.also {
+            val pesagem = Pesagem(
+                fazenda = it.id,
+                data = editDataPesagem.editText?.text.toString(),
+                funcionario = editFuncionario.editText?.text.toString(),
+                finalidade = editFinalidade.editText?.text.toString(),
+                qntTotal = textQuantidade.text.toString().toInt(),
+                pesoMedio = textPesoMedio.text.toString().toFloat(),
+                arrobaMedia = textArrobaMedia.text.toString().toFloat(),
+                listBois = arrayListOf(bois.toString())
+            )
 
-                AlertDialog.Builder(context)
-                    .setTitle("Acabou a pesagem?")
-                    .setMessage("Deseja finalizar a pesagem?")
-                    .setPositiveButton("Sim") { dialog, which ->
-                        lifecycleScope.launch {
-                            args.fazenda?.let {
-                                mViewModel.insert(pesagem)
-                                Toast.makeText(
-                                    context,
-                                    "Pesagem finalizada com sucesso!!",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                Navigation.findNavController(binding.root)
-                                    .navigate(R.id.all_pesagens_fragment)
-                            }
+            AlertDialog.Builder(context)
+                .setTitle("Acabou a pesagem?")
+                .setMessage("Deseja finalizar a pesagem?")
+                .setPositiveButton("Sim") { _, _ ->
+                    lifecycleScope.launch {
+                        args.fazenda?.let {
+                            mViewModel.insert(pesagem)
+                            Toast.makeText(
+                                context,
+                                "Pesagem finalizada com sucesso!!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            Navigation.findNavController(binding.root)
+                                .navigate(R.id.all_pesagens_fragment)
                         }
                     }
-                    .setNeutralButton("Cancelar", null)
-                    .show()
+                }
+                .setNeutralButton("Cancelar", null)
+                .show()
 
-                editFuncionario.editText?.text?.clear()
-                editFinalidade.editText?.text?.clear()
-                textQuantidade.setText("Quantidade")
-                textPesoMedio.setText("Peso Médio")
-                textArrobaMedia.setText("Arroba Média")
-                bois.removeAll(bois)
-            } ?: kotlin.run {
+            editFuncionario.editText?.text?.clear()
+            editFinalidade.editText?.text?.clear()
+            textQuantidade.text = "Quantidade"
+            textPesoMedio.text = "Peso Médio"
+            textArrobaMedia.text = "Arroba Média"
+            bois.removeAll(bois)
+        } ?: run {
 
-            }
         }
     }
 
-    private fun observe(){
-        mViewModel.boiList.observe(viewLifecycleOwner, {
+    private fun observe() {
+        mViewModel.boiList.observe(viewLifecycleOwner) {
             mAdapter.updateBois(bois)
-        })
+        }
     }
 
-    private fun getDataAtual(): String{
+    private fun getDataAtual(): String {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         return dateFormat.format(Calendar.getInstance().time)
     }
