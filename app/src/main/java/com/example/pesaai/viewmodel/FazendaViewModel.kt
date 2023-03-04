@@ -23,10 +23,8 @@ class FazendaViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    fun insert(fazenda: Fazenda) {
-        viewModelScope.launch(Dispatchers.IO) {
-            mFazendaRepository.insertFazenda(fazenda)
-        }
+    fun insert(fazenda: Fazenda) = viewModelScope.launch(Dispatchers.IO) {
+        mFazendaRepository.insertFazenda(fazenda)
     }
 
     fun update(fazenda: Fazenda) {

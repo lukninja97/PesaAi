@@ -26,16 +26,14 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class PesarFragment : Fragment() {
+    private var _binding: FragmentPesarBinding? = null
+    private val binding: FragmentPesarBinding get() = _binding!!
 
     private val mViewModel: PesagemViewModel by viewModels()
     private val mBoiViewModel: BoiViewModel by viewModels()
     private lateinit var mAdapter: BoiAdapter
 
     private val args: PesarFragmentArgs by navArgs()
-
-    private var _binding: FragmentPesarBinding? = null
-    private val binding: FragmentPesarBinding get() = _binding!!
-
     private var bois: ArrayList<Boi> = arrayListOf()
 
     override fun onCreateView(
@@ -48,7 +46,7 @@ class PesarFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.lifecycleOwner = viewLifecycleOwner
         setupScreen()
         setupAdapter()
         mViewModel.loadBois(id)
@@ -173,7 +171,6 @@ class PesarFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        viewModelStore.clear()
         _binding = null
     }
 }

@@ -64,7 +64,7 @@
     <fragment
         android:id="@+id/fazenda_fragment"
         android:name="com.example.pesaai.view.FazendaFragment"
-        android:label="fragment_fazendas"
+        android:label="Fazenda"
         tools:layout="@layout/fragment_fazenda" >
         <argument
             android:name="fazenda"
