@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.AllPesagensFragment">
+        tools:context=".view.AllWeightsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_all_pesagens"
@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            tools:listitem="@layout/row_pesagem" />
+            tools:listitem="@layout/row_weight" />
 
         <TextView
             android:id="@+id/text_vazio"

@@ -10,24 +10,24 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pesaai.databinding.FragmentAllFazendasBinding
-import com.example.pesaai.view.adapter.FazendaAdapter
-import com.example.pesaai.viewmodel.AllFazendasViewModel
+import com.example.pesaai.databinding.FragmentAllFarmsBinding
+import com.example.pesaai.view.adapter.FarmAdapter
+import com.example.pesaai.viewmodel.AllFarmsViewModel
 
-class AllFazendasFragment : Fragment() {
-    private var _binding: FragmentAllFazendasBinding? = null
-    private val binding: FragmentAllFazendasBinding get() = _binding!!
+class AllFarmsFragment : Fragment() {
+    private var _binding: FragmentAllFarmsBinding? = null
+    private val binding: FragmentAllFarmsBinding get() = _binding!!
 
-    private val mViewModel: AllFazendasViewModel by viewModels()
-    private lateinit var mAdapter: FazendaAdapter
+    private val viewModel: AllFarmsViewModel by viewModels()
+    private lateinit var adapter: FarmAdapter
 
-    private val args: AllFazendasFragmentArgs by navArgs()
+    private val args: AllFarmsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAllFazendasBinding.inflate(inflater, container, false)
+        _binding = FragmentAllFarmsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -40,31 +40,31 @@ class AllFazendasFragment : Fragment() {
     }
 
     private fun setRecycler() {
-        mAdapter = FazendaAdapter(mViewModel.fazendaList.value) { farm ->
-            if (args.origem == "F") {
-                val action = AllFazendasFragmentDirections.actionFazendasToFazendaForm(farm)
+        adapter = FarmAdapter(viewModel.farmList.value) { farm ->
+            if (args.origin == "F") {
+                val action = AllFarmsFragmentDirections.actionFazendasToFazendaForm(farm)
                 findNavController().navigate(action)
             } else {
-                val action = AllFazendasFragmentDirections.actionFazendasToPesar(farm)
+                val action = AllFarmsFragmentDirections.actionFazendasToPesar(farm)
                 findNavController().navigate(action)
             }
         }
 
         val recycler = binding.recyclerAllFazendas
         recycler.layoutManager = LinearLayoutManager(context)
-        recycler.adapter = mAdapter
+        recycler.adapter = adapter
     }
 
     private fun listeners() {
         binding.fabAddFazenda.setOnClickListener {
-            val action = AllFazendasFragmentDirections.actionFazendasToFazendaForm(null)
+            val action = AllFarmsFragmentDirections.actionFazendasToFazendaForm(null)
             findNavController().navigate(action)
         }
     }
 
     private fun observer() {
-        mViewModel.fazendaList.observe(viewLifecycleOwner) {
-            mAdapter.updateFazendas(it)
+        viewModel.farmList.observe(viewLifecycleOwner) {
+            adapter.updateFarms(it)
 
             binding.textVazio.isVisible = it.isEmpty()
         }

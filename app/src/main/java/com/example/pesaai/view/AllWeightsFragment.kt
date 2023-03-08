@@ -10,22 +10,22 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pesaai.R
-import com.example.pesaai.databinding.FragmentAllPesagensBinding
-import com.example.pesaai.view.adapter.PesagemAdapter
-import com.example.pesaai.viewmodel.AllPesagensViewModel
+import com.example.pesaai.databinding.FragmentAllWeightsBinding
+import com.example.pesaai.view.adapter.WeighingAdapter
+import com.example.pesaai.viewmodel.AllWeightsViewModel
 
-class AllPesagensFragment : Fragment() {
-    private var _binding: FragmentAllPesagensBinding? = null
-    private val binding: FragmentAllPesagensBinding get() = _binding!!
+class AllWeightsFragment : Fragment() {
+    private var _binding: FragmentAllWeightsBinding? = null
+    private val binding: FragmentAllWeightsBinding get() = _binding!!
 
-    private val mViewModel: AllPesagensViewModel by viewModels()
-    private lateinit var mAdapter: PesagemAdapter
+    private val viewModel: AllWeightsViewModel by viewModels()
+    private lateinit var adapter: WeighingAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAllPesagensBinding.inflate(inflater, container, false)
+        _binding = FragmentAllWeightsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -38,13 +38,13 @@ class AllPesagensFragment : Fragment() {
     }
 
     private fun setRecycler() {
-        mAdapter = PesagemAdapter(mViewModel.pesagemList.value) {
+        adapter = WeighingAdapter(viewModel.weightList.value) {
             //fazer uma fragment para exibir as pesagens
         }
 
         val recycler = binding.recyclerAllPesagens
         recycler.layoutManager = LinearLayoutManager(context)
-        recycler.adapter = mAdapter
+        recycler.adapter = adapter
     }
 
     private fun listeners() {
@@ -54,8 +54,8 @@ class AllPesagensFragment : Fragment() {
     }
 
     private fun observer() {
-        mViewModel.pesagemList.observe(viewLifecycleOwner) {
-            mAdapter.updatePesagens(it)
+        viewModel.weightList.observe(viewLifecycleOwner) {
+            adapter.updateWeights(it)
 
             binding.textVazio.isVisible = it.isEmpty()
         }

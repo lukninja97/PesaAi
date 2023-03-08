@@ -24,9 +24,9 @@
 
     <fragment
         android:id="@+id/all_fazendas_fragment"
-        android:name="com.example.pesaai.view.AllFazendasFragment"
+        android:name="com.example.pesaai.view.AllFarmsFragment"
         android:label="Fazendas"
-        tools:layout="@layout/fragment_all_fazendas">
+        tools:layout="@layout/fragment_all_farms">
 
         <action
             android:id="@+id/action_fazendas_to_fazenda_form"
@@ -35,16 +35,16 @@
             android:id="@+id/action_fazendas_to_pesar"
             app:destination="@id/pesar_fragment" />
         <argument
-            android:name="origem"
+            android:name="origin"
             app:argType="string"
             app:nullable="true" />
     </fragment>
 
     <fragment
         android:id="@+id/all_pesagens_fragment"
-        android:name="com.example.pesaai.view.AllPesagensFragment"
+        android:name="com.example.pesaai.view.AllWeightsFragment"
         android:label="Pesagens"
-        tools:layout="@layout/fragment_all_pesagens" >
+        tools:layout="@layout/fragment_all_weights" >
         <action
             android:id="@+id/action_pesagens_to_pesar"
             app:destination="@id/pesar_fragment" />
@@ -52,23 +52,23 @@
 
     <fragment
         android:id="@+id/pesar_fragment"
-        android:name="com.example.pesaai.view.PesarFragment"
+        android:name="com.example.pesaai.view.WeightFragment"
         android:label="Pesar"
         tools:layout="@layout/fragment_pesar" >
         <argument
-            android:name="fazenda"
-            app:argType="com.example.pesaai.service.model.Fazenda"
+            android:name="farm"
+            app:argType="com.example.pesaai.service.model.Farm"
             app:nullable="true" />
     </fragment>
 
     <fragment
         android:id="@+id/fazenda_fragment"
-        android:name="com.example.pesaai.view.FazendaFragment"
+        android:name="com.example.pesaai.view.FarmFragment"
         android:label="Fazenda"
-        tools:layout="@layout/fragment_fazenda" >
+        tools:layout="@layout/fragment_farm" >
         <argument
-            android:name="fazenda"
-            app:argType="com.example.pesaai.service.model.Fazenda"
+            android:name="farm"
+            app:argType="com.example.pesaai.service.model.Farm"
             app:nullable="true" />
         <action
             android:id="@+id/action_fazenda_form_to_fazendas"

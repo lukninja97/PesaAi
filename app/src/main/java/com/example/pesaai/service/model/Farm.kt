@@ -4,11 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
-@Entity(tableName = "fazenda")
-data class Fazenda(
+@Entity(tableName = "farm")
+data class Farm(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
-    var nome: String = "",
+    var name: String = "",
     var local: String = "",
-    var dono: String = ""
+    var proprietor: String = ""
 ) : Serializable

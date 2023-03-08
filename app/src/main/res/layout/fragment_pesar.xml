@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="4dp"
-        tools:context=".view.PesarFragment">
+        tools:context=".view.WeightFragment">
 
         <ImageView
             android:id="@+id/image_fazenda"
@@ -126,7 +126,7 @@
             app:layout_constraintEnd_toStartOf="@id/edit_peso"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_finalidade"
-            tools:listitem="@layout/row_bois" />
+            tools:listitem="@layout/row_bulls" />
 
         <ImageView
             android:id="@+id/ic_quantidade"

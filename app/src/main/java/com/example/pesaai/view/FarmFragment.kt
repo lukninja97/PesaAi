@@ -11,28 +11,27 @@ import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.pesaai.R
-import com.example.pesaai.databinding.FragmentFazendaBinding
-import com.example.pesaai.service.model.Fazenda
-import com.example.pesaai.viewmodel.FazendaViewModel
+import com.example.pesaai.databinding.FragmentFarmBinding
+import com.example.pesaai.service.model.Farm
+import com.example.pesaai.viewmodel.FarmViewModel
 import kotlinx.coroutines.launch
 
-class FazendaFragment : Fragment() {
-    private var _binding: FragmentFazendaBinding? = null
-    private val binding: FragmentFazendaBinding get() = _binding!!
+class FarmFragment : Fragment() {
+    private var _binding: FragmentFarmBinding? = null
+    private val binding: FragmentFarmBinding get() = _binding!!
 
-    private val viewModel: FazendaViewModel by viewModels()
+    private val viewModel: FarmViewModel by viewModels()
 
-    private val args: FazendaFragmentArgs by navArgs()
+    private val args: FarmFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFazendaBinding.inflate(inflater, container, false)
+        _binding = FragmentFarmBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -42,7 +41,7 @@ class FazendaFragment : Fragment() {
 
         listeners()
         observe()
-        loadFazenda()
+        loadFarm()
     }
 
     private fun listeners() = with(binding) {
@@ -65,16 +64,15 @@ class FazendaFragment : Fragment() {
             .setTitle("Exclusão de Fazenda")
             .setMessage("Deseja excluir Fazenda?")
             .setPositiveButton("Sim") { _, _ ->
-                lifecycleScope.launch {
-                    args.fazenda?.let {
+                viewLifecycleOwner.lifecycleScope.launch {
+                    args.farm?.let {
                         viewModel.delete(it)
                         Toast.makeText(
                             context,
                             "Fazenda excluída com sucesso!!",
                             Toast.LENGTH_SHORT
                         ).show()
-                        Navigation.findNavController(binding.root)
-                            .navigate(R.id.all_fazendas_fragment)
+                        findNavController().navigate(R.id.all_fazendas_fragment)
                     }
                 }
             }
@@ -88,18 +86,18 @@ class FazendaFragment : Fragment() {
         if (nome == "") {
             Toast.makeText(context, "Preencha o nome da fazenda", Toast.LENGTH_SHORT).show()
         } else {
-            val farm = Fazenda(
-                nome = editFazenda.editText?.text.toString(),
+            val farm = Farm(
+                name = editFazenda.editText?.text.toString(),
                 local = editLocal.editText?.text.toString(),
-                dono = editProprietario.editText?.text.toString(),
+                proprietor = editProprietario.editText?.text.toString(),
             )
 
             viewLifecycleOwner.lifecycleScope.launch {
-                if (args.fazenda?.id == null) {
+                if (args.farm?.id == null) {
                     viewModel.insert(farm)
                     Toast.makeText(context, "Fazenda salva com sucesso", Toast.LENGTH_SHORT).show()
                 } else {
-                    args.fazenda?.also {
+                    args.farm?.also {
                         farm.id = it.id
                     }
                     viewModel.update(farm)
@@ -117,11 +115,11 @@ class FazendaFragment : Fragment() {
     }
 
     private fun observe() {
-        viewModel.fazenda.observe(viewLifecycleOwner) {
+        viewModel.farm.observe(viewLifecycleOwner) {
             binding.apply {
-                editFazenda.editText?.setText(it.nome)
+                editFazenda.editText?.setText(it.name)
                 editLocal.editText?.setText(it.local)
-                editProprietario.editText?.setText(it.dono)
+                editProprietario.editText?.setText(it.proprietor)
 
                 textFazenda.text = editFazenda.editText?.text
                 textLocal.text = editLocal.editText?.text
@@ -130,14 +128,14 @@ class FazendaFragment : Fragment() {
         }
     }
 
-    private fun loadFazenda() {
+    private fun loadFarm() {
         viewLifecycleOwner.lifecycleScope.launch {
-            args.fazenda?.let {
+            args.farm?.let {
                 viewModel.load(it.id)
             }
         }
 
-        binding.buttonDelete.isVisible = (args.fazenda?.id != 0)
+        binding.buttonDelete.isVisible = (args.farm?.id != 0)
     }
 
     override fun onDestroyView() {

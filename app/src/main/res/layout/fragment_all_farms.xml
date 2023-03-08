@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.AllFazendasFragment">
+        tools:context=".view.AllFarmsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_all_fazendas"
@@ -16,7 +16,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             tools:layout_editor_absoluteY="0dp"
-            tools:listitem="@layout/row_fazenda" />
+            tools:listitem="@layout/row_farm" />
 
         <TextView
             android:id="@+id/text_vazio"
