@@ -1,4 +1,4 @@
-package com.example.pesaai
+package com.example.pesaai.viewmodel
 
 import androidx.lifecycle.ViewModel
 

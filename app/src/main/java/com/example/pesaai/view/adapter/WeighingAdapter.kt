@@ -15,9 +15,9 @@ class WeighingAdapter(weights: List<Weight>?, private val clickListener: (Weight
 
     class WeightViewHolder(private val binding: RowWeightBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(weight: Weight, farm: Farm, clickListener: (Weight) -> Unit) = with(binding) {
-            textFazenda.text = farm.name
-            textLocal.text = farm.local
-            textDono.text = farm.proprietor
+//            .text = farm.name
+//            textLocal.text = farm.local
+//            textDono.text = farm.proprietor
             textDataPesagem.text = weight.date
 
             root.setOnClickListener { clickListener(weight) }

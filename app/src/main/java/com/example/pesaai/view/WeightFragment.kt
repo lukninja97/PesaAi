@@ -57,9 +57,9 @@ class WeightFragment : Fragment() {
         listeners()
 
         args.farm?.also { farm ->
-            textFazenda.text = farm.name
-            textLocal.text = farm.local
-            textDono.text = farm.proprietor
+//            textFazenda.text = farm.name
+//            textLocal.text = farm.local
+//            textDono.text = farm.proprietor
         }
         editDataPesagem.editText?.setText(getActualDate())
     }

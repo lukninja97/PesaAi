@@ -10,14 +10,13 @@ import com.example.pesaai.service.model.BullsTypeConverter
 import com.example.pesaai.service.model.Farm
 import com.example.pesaai.service.model.Weight
 
-@Database(entities = [Farm::class, Weight::class, Bull::class ]
-        , version = 1)
+@Database(entities = [Farm::class, Weight::class, Bull::class ], version = 1)
 @TypeConverters(BullsTypeConverter::class)
 abstract class PesaAiDataBase: RoomDatabase() {
 
-    abstract fun fazendaDAO(): FarmDAO
-    abstract fun pesagemDAO(): WeightDAO
-    abstract fun boiDAO(): BullDAO
+    abstract fun farmDAO(): FarmDAO
+    abstract fun weightDAO(): WeightDAO
+    abstract fun bullDAO(): BullDAO
 
     companion object{
         @Volatile

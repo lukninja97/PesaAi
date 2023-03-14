@@ -86,7 +86,6 @@
             android:paddingTop="10dp"
             android:paddingBottom="30dp"
             android:background="?attr/colorPrimaryVariant"
-            android:src="@drawable/pesagensc"
             app:layout_constraintVertical_weight="1"/>
 
         <TextView

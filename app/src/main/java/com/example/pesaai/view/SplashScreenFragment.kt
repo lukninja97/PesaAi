@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.example.pesaai.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -50,7 +49,6 @@ class SplashScreenFragment : Fragment() {
     private fun finishSplashScreen() {
         lifecycleScope.launch {
             delay(8000L)
-            //findNavController().navigate(R.id.action_splashScreenFragment_to_FirstFragment)
             delay(1200L)
             setDefaultScreen()
         }

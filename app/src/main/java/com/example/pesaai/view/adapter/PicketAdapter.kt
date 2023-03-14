@@ -3,21 +3,20 @@ package com.example.pesaai.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pesaai.databinding.RowPesagemBinding
 import com.example.pesaai.databinding.RowPicketBinding
 import com.example.pesaai.service.model.Farm
-import com.example.pesaai.service.model.Pesagem
+import com.example.pesaai.service.model.Weight
 
-class PicketAdapter(pickets: List<Pesagem>?, private val clickListener: (Pesagem) -> Unit) :
+class PicketAdapter(pickets: List<Weight>?, private val clickListener: (Weight) -> Unit) :
     RecyclerView.Adapter<PicketAdapter.PicketViewHolder>() {
 
-    private var mPicketList: List<Pesagem> = arrayListOf()
+    private var mPicketList: List<Weight> = arrayListOf()
     private var mFarmList: List<Farm> = arrayListOf()
 
     class PicketViewHolder(private val binding: RowPicketBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(picket: Pesagem, farm: Farm, clickListener: (Pesagem) -> Unit) {
+        fun bind(picket: Weight, farm: Farm, clickListener: (Weight) -> Unit) {
             binding.apply {
                 root.setOnClickListener { clickListener(picket) }
             }
@@ -37,7 +36,7 @@ class PicketAdapter(pickets: List<Pesagem>?, private val clickListener: (Pesagem
 
     override fun getItemCount(): Int = mPicketList.count()
 
-    fun updatePesagens(list: List<Pesagem>) {
+    fun updatePesagens(list: List<Weight>) {
         mPicketList = list
         notifyDataSetChanged()
     }
