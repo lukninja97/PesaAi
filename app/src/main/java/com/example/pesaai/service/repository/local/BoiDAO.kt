@@ -2,7 +2,6 @@ package com.example.pesaai.service.repository.local
 
 import androidx.room.*
 import com.example.pesaai.service.model.Boi
-import com.example.pesaai.service.model.Fazenda
 
 @Dao
 interface BoiDAO {

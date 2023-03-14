@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.pesaai.service.model.Boi
-import com.example.pesaai.service.model.Pesagem
 import com.example.pesaai.service.repository.BoiRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel

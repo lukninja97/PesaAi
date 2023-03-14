@@ -1,10 +1,7 @@
 package com.example.pesaai.service.repository.local
 
 import androidx.room.*
-import com.example.pesaai.service.model.Boi
-import com.example.pesaai.service.model.Fazenda
 import com.example.pesaai.service.model.Pesagem
-import com.example.pesaai.service.model.relations.FazendaWithPesagens
 import com.example.pesaai.service.model.relations.PesagemWithBois
 
 @Dao

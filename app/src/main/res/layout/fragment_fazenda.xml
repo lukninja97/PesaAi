@@ -17,7 +17,7 @@
         android:layout_margin="5dp"/>
 
     <TextView
-        android:id="@+id/text_fazenda"
+        android:id="@+id/tvFarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/id_cow_pesado"
@@ -33,10 +33,10 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_location"
         app:layout_constraintStart_toEndOf="@+id/id_cow_pesado"
-        app:layout_constraintTop_toBottomOf="@+id/text_fazenda" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFarm" />
 
     <TextView
-        android:id="@+id/text_local"
+        android:id="@+id/tvLocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/id_brinco"
@@ -55,7 +55,7 @@
         android:src="@drawable/ic_dono" />
 
     <TextView
-        android:id="@+id/text_dono"
+        android:id="@+id/tvEmployee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/id_peso"

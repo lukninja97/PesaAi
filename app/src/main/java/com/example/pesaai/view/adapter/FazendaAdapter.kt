@@ -4,23 +4,23 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pesaai.databinding.RowFazendaBinding
-import com.example.pesaai.service.model.Fazenda
+import com.example.pesaai.service.model.Farm
 
-class FazendaAdapter(fazendas: List<Fazenda>?, private val clickListener: (Fazenda) -> Unit) :
+class FazendaAdapter(farms: List<Farm>?, private val clickListener: (Farm) -> Unit) :
     RecyclerView.Adapter<FazendaAdapter.FazendaViewHolder>() {
 
-    private var mFazendaList: List<Fazenda> = arrayListOf()
+    private var mFarmList: List<Farm> = arrayListOf()
 
     class FazendaViewHolder(private val binding: RowFazendaBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(fazenda: Fazenda, clickListener: (Fazenda) -> Unit) {
+        fun bind(farm: Farm, clickListener: (Farm) -> Unit) {
             binding.apply {
-                textFazenda.text = fazenda.nome
-                textDono.text = fazenda.dono
-                textLocal.text = fazenda.local
+                textFazenda.text = farm.nome
+                textDono.text = farm.dono
+                textLocal.text = farm.local
 
-                root.setOnClickListener { clickListener(fazenda) }
+                root.setOnClickListener { clickListener(farm) }
             }
         }
     }
@@ -32,13 +32,13 @@ class FazendaAdapter(fazendas: List<Fazenda>?, private val clickListener: (Fazen
     }
 
     override fun onBindViewHolder(holder: FazendaViewHolder, position: Int) {
-        holder.bind(mFazendaList[position], clickListener)
+        holder.bind(mFarmList[position], clickListener)
     }
 
-    override fun getItemCount(): Int = mFazendaList.count()
+    override fun getItemCount(): Int = mFarmList.count()
 
-    fun updateFazendas(list: List<Fazenda>){
-        mFazendaList = list
+    fun updateFazendas(list: List<Farm>){
+        mFarmList = list
         notifyDataSetChanged()
     }
 }

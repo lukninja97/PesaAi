@@ -2,8 +2,6 @@ package com.example.pesaai.service.repository
 
 import android.content.Context
 import com.example.pesaai.service.model.Boi
-import com.example.pesaai.service.model.Fazenda
-import com.example.pesaai.service.model.Pesagem
 import com.example.pesaai.service.repository.local.PesaAiDataBase
 
 class BoiRepository(var context: Context) {

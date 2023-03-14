@@ -38,7 +38,7 @@ class AllFazendasFragment : Fragment() {
             Navigation.findNavController(binding.root).navigate(action)
         }
 
-        mAdapter = FazendaAdapter(mViewModel.fazendaList.value){ fazenda ->
+        mAdapter = FazendaAdapter(mViewModel.farmList.value){ fazenda ->
             if (args.origem == "F"){
                 val action = AllFazendasFragmentDirections.actionFazendasToFazendaForm(fazenda)
                 Navigation.findNavController(binding.root).navigate(action)
@@ -61,7 +61,7 @@ class AllFazendasFragment : Fragment() {
     }
 
     private fun observer(){
-        mViewModel.fazendaList.observe(viewLifecycleOwner, {
+        mViewModel.farmList.observe(viewLifecycleOwner, {
             mAdapter.updateFazendas(it)
 
             binding.textVazio.isVisible = it.isEmpty()

@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 
 @Entity(tableName = "fazenda")
-data class Fazenda(
+data class Farm(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     var nome: String = "",

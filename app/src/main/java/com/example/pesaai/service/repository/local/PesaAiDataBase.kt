@@ -7,10 +7,10 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.pesaai.service.model.Boi
 import com.example.pesaai.service.model.BoisTypeConverter
-import com.example.pesaai.service.model.Fazenda
+import com.example.pesaai.service.model.Farm
 import com.example.pesaai.service.model.Pesagem
 
-@Database(entities = [Fazenda::class, Pesagem::class, Boi::class ]
+@Database(entities = [Farm::class, Pesagem::class, Boi::class ]
         , version = 1)
 @TypeConverters(BoisTypeConverter::class)
 abstract class PesaAiDataBase: RoomDatabase() {

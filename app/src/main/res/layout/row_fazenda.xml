@@ -14,7 +14,7 @@
         android:layout_margin="5dp"/>
 
     <TextView
-        android:id="@+id/text_fazenda"
+        android:id="@+id/tvFarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/id_fazenda"
@@ -30,10 +30,10 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_location"
         app:layout_constraintStart_toEndOf="@+id/id_fazenda"
-        app:layout_constraintTop_toBottomOf="@+id/text_fazenda" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFarm" />
 
     <TextView
-        android:id="@+id/text_local"
+        android:id="@+id/tvLocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/ic_local"
@@ -44,7 +44,7 @@
         android:textColor="?attr/colorPrimary"/>
 
     <ImageView
-        android:id="@+id/id_dono"
+        android:id="@+id/imgProprierty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/id_fazenda"
@@ -52,12 +52,12 @@
         android:src="@drawable/ic_dono" />
 
     <TextView
-        android:id="@+id/text_dono"
+        android:id="@+id/tvEmployee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/id_dono"
-        app:layout_constraintTop_toTopOf="@+id/id_dono"
-        app:layout_constraintBottom_toBottomOf="@+id/id_dono"
+        app:layout_constraintStart_toEndOf="@+id/imgProprierty"
+        app:layout_constraintTop_toTopOf="@+id/imgProprierty"
+        app:layout_constraintBottom_toBottomOf="@+id/imgProprierty"
         android:text="Proprietário"
         android:textSize="12sp"
         android:textColor="?attr/colorPrimary"/>

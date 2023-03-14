@@ -58,11 +58,11 @@ class PesarFragment : Fragment() {
     private fun setupScreen() = with(binding) {
         listeners()
 
-        args.fazenda?.also { farm ->
-            textFazenda.text = farm.nome
-            textLocal.text = farm.local
-            textDono.text = farm.dono
-        }
+//        args.fazenda?.also { farm ->
+//            textFazenda.text = farm.nome
+//            textLocal.text = farm.local
+//            textDono.text = farm.dono
+//        }
         editDataPesagem.editText?.setText(getDataAtual())
     }
 

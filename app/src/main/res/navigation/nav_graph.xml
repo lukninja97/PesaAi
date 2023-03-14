@@ -57,7 +57,7 @@
         tools:layout="@layout/fragment_pesar" >
         <argument
             android:name="fazenda"
-            app:argType="com.example.pesaai.service.model.Fazenda"
+            app:argType="com.example.pesaai.service.model.Farm"
             app:nullable="true" />
     </fragment>
 
@@ -68,7 +68,7 @@
         tools:layout="@layout/fragment_fazenda" >
         <argument
             android:name="fazenda"
-            app:argType="com.example.pesaai.service.model.Fazenda"
+            app:argType="com.example.pesaai.service.model.Farm"
             app:nullable="true" />
         <action
             android:id="@+id/action_fazenda_form_to_fazendas"

@@ -10,21 +10,9 @@
         android:layout_height="80dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tvEmployee"
-        android:src="@drawable/pesarc"
-        android:layout_margin="5dp"/>
-
-    <TextView
-        android:id="@+id/tvEmployee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:text="Funcionario"
-        android:textSize="12sp"
-        app:drawableStartCompat="@drawable/ic_dono"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imgWeights"
-        app:layout_constraintStart_toStartOf="@id/imgWeights" />
+        android:src="@drawable/ic_picket"
+        android:layout_margin="6dp"/>
 
     <TextView
         android:id="@+id/tvPicket"
@@ -47,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvMiddleWeight"
         app:layout_constraintStart_toEndOf="@id/imgWeights"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPicket" />
 
     <TextView
         android:id="@+id/tvMiddleWeight"
@@ -60,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvMiddleArroba"
         app:layout_constraintStart_toEndOf="@id/tvAnimals"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPicket" />
 
     <TextView
         android:id="@+id/tvMiddleArroba"
@@ -73,15 +61,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvMiddleWeight"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_data_pesagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgWeights"
-        android:layout_margin="4dp"
-        android:text="Data Pesagem"
-        android:textSize="12sp" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPicket" />
 </androidx.constraintlayout.widget.ConstraintLayout>

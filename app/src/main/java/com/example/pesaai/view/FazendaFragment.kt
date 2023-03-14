@@ -2,6 +2,7 @@ package com.example.pesaai.view
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,18 +10,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.findFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
-import androidx.room.PrimaryKey
-import androidx.room.Room
 import com.example.pesaai.R
-import com.example.pesaai.databinding.FragmentAllFazendasBinding
 import com.example.pesaai.databinding.FragmentFazendaBinding
-import com.example.pesaai.service.model.Fazenda
+import com.example.pesaai.service.model.Boi
+import com.example.pesaai.service.model.Farm
 import com.example.pesaai.viewmodel.FazendaViewModel
 import kotlinx.coroutines.launch
 
@@ -48,13 +45,13 @@ class FazendaFragment : Fragment() {
             buttonDelete.setOnClickListener { handleDelete() }
 
             editFazenda.editText?.addTextChangedListener {
-                textFazenda.setText(it)
+                tvFarm.text = it
             }
             editLocal.editText?.addTextChangedListener {
-                textLocal.setText(it)
+                tvLocal.text = it
             }
             editProprietario.editText?.addTextChangedListener {
-                textDono.setText(it)
+                tvEmployee.text = it
             }
         }
 
@@ -105,7 +102,7 @@ class FazendaFragment : Fragment() {
         if (nome == "") {
             Toast.makeText(context, "O Nome não pode ser nulo", Toast.LENGTH_SHORT).show()
         } else {
-            var fazenda = Fazenda(
+            var farm = Farm(
                 nome = binding.editFazenda.editText?.text.toString(),
                 local = binding.editLocal.editText?.text.toString(),
                 dono = binding.editProprietario.editText?.text.toString(),
@@ -124,14 +121,14 @@ class FazendaFragment : Fragment() {
                 }*/
 
                 if (args.fazenda?.id == null) {
-                    mViewModel.insert(fazenda)
+                    mViewModel.insert(farm)
                     Toast.makeText(context, "Fazenda salvo com sucesso", Toast.LENGTH_SHORT)
                         .show()
                 } else {
                     args.fazenda?.also {
-                        fazenda.id = it.id
+                        farm.id = it.id
                     }
-                    mViewModel.update(fazenda)
+                    mViewModel.update(farm)
                     Toast.makeText(
                         context,
                         "Fazenda atualizado com sucesso",
@@ -152,17 +149,17 @@ class FazendaFragment : Fragment() {
     }
 
     private fun observe() {
-        mViewModel.fazenda.observe(viewLifecycleOwner, {
+        mViewModel.farm.observe(viewLifecycleOwner) {
             binding.apply {
                 editFazenda.editText?.setText(it.nome)
                 editLocal.editText?.setText(it.local)
                 editProprietario.editText?.setText(it.dono)
 
-                textFazenda.setText(editFazenda.editText?.text)
-                textLocal.setText(editLocal.editText?.text)
-                textDono.setText(editProprietario.editText?.text)
+                tvFarm.text = editFazenda.editText?.text
+                tvLocal.text = editLocal.editText?.text
+                tvEmployee.text = editProprietario.editText?.text
             }
-        })
+        }
     }
 
     private fun loadFazenda() {
