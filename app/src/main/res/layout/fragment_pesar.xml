@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="4dp"
-    tools:context=".view.PesarFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/image_fazenda"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_margin="0dp"
-        android:src="@drawable/fazenda"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp"
+        tools:context=".view.WeightFragment">
+
+        <ImageView
+            android:id="@+id/image_fazenda"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="0dp"
+            android:src="@drawable/fazenda"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvFarm"
@@ -73,187 +75,188 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFarm">
 
-        <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:bufferType="normal"
+                android:hint="Data Pesagem"
+                android:inputType="date" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_funcionario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:bufferType="normal"
-            android:hint="Data Pesagem"
-            android:inputType="date" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_fazenda"
+            app:startIconDrawable="@drawable/ic_dono">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:bufferType="normal"
+                android:hint="Funcionario"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_funcionario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_fazenda"
-        app:startIconDrawable="@drawable/ic_dono">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_finalidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:bufferType="normal"
-            android:hint="Funcionario"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_funcionario"
+            app:startIconDrawable="@drawable/ic_finalidade">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_finalidade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_funcionario"
-        app:startIconDrawable="@drawable/ic_finalidade">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:bufferType="normal"
+                android:hint="Finalidade da pesagem"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_pesados"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/edit_brinco"
+            app:layout_constraintEnd_toStartOf="@id/edit_peso"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_finalidade"
+            tools:listitem="@layout/row_bulls" />
+
+        <ImageView
+            android:id="@+id/ic_quantidade"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/cowbrincoc"
+            app:layout_constraintBottom_toTopOf="@+id/text_quantidade"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/list_pesados"
+            app:layout_constraintTop_toBottomOf="@+id/edit_finalidade" />
+
+        <TextView
+            android:id="@+id/text_quantidade"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:bufferType="normal"
-            android:hint="Finalidade da pesagem"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Quantidade"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/ic_arroba_media"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/list_pesados"
+            app:layout_constraintTop_toBottomOf="@+id/ic_quantidade" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_pesados"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_brinco"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/edit_peso"
-        app:layout_constraintTop_toBottomOf="@+id/edit_finalidade"
-        tools:listitem="@layout/row_bois"/>
+        <ImageView
+            android:id="@+id/ic_arroba_media"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/peso"
+            app:layout_constraintBottom_toTopOf="@+id/text_peso_medio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/list_pesados"
+            app:layout_constraintTop_toBottomOf="@+id/text_quantidade" />
 
-    <ImageView
-        android:id="@+id/ic_quantidade"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/cowbrincoc"
-        app:layout_constraintStart_toEndOf="@+id/list_pesados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_finalidade"
-        app:layout_constraintBottom_toTopOf="@+id/text_quantidade"
-        android:layout_marginTop="8dp"/>
-
-    <TextView
-        android:id="@+id/text_quantidade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quantidade"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/list_pesados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ic_quantidade"
-        app:layout_constraintBottom_toTopOf="@+id/ic_arroba_media"/>
-
-    <ImageView
-        android:id="@+id/ic_arroba_media"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/peso"
-        app:layout_constraintStart_toEndOf="@+id/list_pesados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_quantidade"
-        app:layout_constraintBottom_toTopOf="@+id/text_peso_medio"/>
-
-    <TextView
-        android:id="@+id/text_peso_medio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Peso Médio"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/list_pesados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ic_arroba_media"
-        app:layout_constraintBottom_toTopOf="@+id/ic_peso_medio"/>
-
-    <ImageView
-        android:id="@+id/ic_peso_medio"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/ic_arroba"
-        app:layout_constraintStart_toEndOf="@+id/list_pesados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_peso_medio"
-        app:layout_constraintBottom_toTopOf="@+id/text_arroba_media"/>
-
-    <TextView
-        android:id="@+id/text_arroba_media"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Arroba Média"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_finalizar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/list_pesados"
-        app:layout_constraintTop_toBottomOf="@+id/ic_peso_medio" />
-
-    <Button
-        android:id="@+id/button_finalizar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/verde_escuro"
-        android:text="Finalizar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/list_pesados"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_arroba_media"
-        android:layout_marginBottom="150dp"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_brinco"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/edit_peso"
-        app:layout_constraintTop_toBottomOf="@+id/list_pesados"
-        app:layout_constraintBottom_toTopOf="@+id/button_pesar"
-        app:startIconDrawable="@drawable/ic_tag"
-        android:layout_marginBottom="8dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/text_peso_medio"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:bufferType="normal"
-            android:hint="Brinco"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Peso Médio"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/ic_peso_medio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/list_pesados"
+            app:layout_constraintTop_toBottomOf="@+id/ic_arroba_media" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_peso"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintLeft_toRightOf="@+id/edit_brinco"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list_pesados"
-        app:layout_constraintBottom_toTopOf="@id/button_pesar"
-        app:startIconDrawable="@drawable/ic_peso"
-        android:layout_marginBottom="8dp">
+        <ImageView
+            android:id="@+id/ic_peso_medio"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_arroba"
+            app:layout_constraintBottom_toTopOf="@+id/text_arroba_media"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/list_pesados"
+            app:layout_constraintTop_toBottomOf="@+id/text_peso_medio" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/text_arroba_media"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:bufferType="normal"
-            android:hint="Peso (Kg)"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Arroba Média"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/button_finalizar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/list_pesados"
+            app:layout_constraintTop_toBottomOf="@+id/ic_peso_medio" />
 
-    <Button
-        android:id="@+id/button_pesar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/verde_escuro"
-        android:text="Pesar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        <Button
+            android:id="@+id/button_finalizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="150dp"
+            android:backgroundTint="@color/verde_escuro"
+            android:text="Finalizar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/list_pesados"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_arroba_media" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_brinco"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/button_pesar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/edit_peso"
+            app:layout_constraintTop_toBottomOf="@+id/list_pesados"
+            app:startIconDrawable="@drawable/ic_tag">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:bufferType="normal"
+                android:hint="Brinco"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_peso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/button_pesar"
+            app:layout_constraintLeft_toRightOf="@+id/edit_brinco"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/list_pesados"
+            app:startIconDrawable="@drawable/ic_peso">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:bufferType="normal"
+                android:hint="Peso (Kg)"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button_pesar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/verde_escuro"
+            android:text="Pesar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

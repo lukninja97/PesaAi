@@ -5,21 +5,21 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.Serializable
 
-@Entity(tableName = "pesagem")
-data class Pesagem(
+@Entity(tableName = "weight")
+data class Weight(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
-    val fazenda: Int = 0,
-    var data: String = "",
-    var funcionario: String = "",
-    var finalidade: String = "",
+    val farm: Int = 0,
+    var date: String = "",
+    var employee: String = "",
+    var finality: String = "",
     var qntTotal: Int = 0,
-    var pesoMedio: Float = 0F,
+    var middleWeight: Float = 0F,
     var arrobaMedia: Float = 0F,
-    val listBois: ArrayList<String>
+    val listBulls: ArrayList<String>
 ) : Serializable
 
-class BoisTypeConverter{
+class BullsTypeConverter{
     @TypeConverter
     fun fromString(value: String?): ArrayList<String>{
 

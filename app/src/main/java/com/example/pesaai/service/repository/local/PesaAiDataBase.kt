@@ -5,19 +5,19 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.pesaai.service.model.Boi
-import com.example.pesaai.service.model.BoisTypeConverter
+import com.example.pesaai.service.model.Bull
+import com.example.pesaai.service.model.BullsTypeConverter
 import com.example.pesaai.service.model.Farm
-import com.example.pesaai.service.model.Pesagem
+import com.example.pesaai.service.model.Weight
 
-@Database(entities = [Farm::class, Pesagem::class, Boi::class ]
+@Database(entities = [Farm::class, Weight::class, Bull::class ]
         , version = 1)
-@TypeConverters(BoisTypeConverter::class)
+@TypeConverters(BullsTypeConverter::class)
 abstract class PesaAiDataBase: RoomDatabase() {
 
-    abstract fun fazendaDAO(): FazendaDAO
-    abstract fun pesagemDAO(): PesagemDAO
-    abstract fun boiDAO(): BoiDAO
+    abstract fun fazendaDAO(): FarmDAO
+    abstract fun pesagemDAO(): WeightDAO
+    abstract fun boiDAO(): BullDAO
 
     companion object{
         @Volatile
