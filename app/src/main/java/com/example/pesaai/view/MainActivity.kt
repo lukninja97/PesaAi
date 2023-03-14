@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     private fun configureDestination() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.imgLogo.visibility = when (destination.id) {
-                R.id.menu_fragment -> View.VISIBLE
+                R.id.dashboard_fragment -> View.VISIBLE
                 else -> View.GONE
             }
         }
