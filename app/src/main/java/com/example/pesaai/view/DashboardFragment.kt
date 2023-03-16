@@ -35,6 +35,9 @@ class DashboardFragment : Fragment() {
     }
 
     private fun setAdapter() {
+        picketAdapter = PicketAdapter(viewModel.picketsList.value) {
+
+        }
         binding.rvHistoric.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = picketAdapter
@@ -46,5 +49,4 @@ class DashboardFragment : Fragment() {
             )
         }
     }
-
 }
