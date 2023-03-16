@@ -21,8 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="5dp"
         android:text="Fazenda"
-        android:textSize="16sp"
-        android:textColor="?attr/colorPrimary"/>
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/ic_local"
@@ -40,8 +39,7 @@
         app:layout_constraintTop_toTopOf="@+id/ic_local"
         app:layout_constraintBottom_toBottomOf="@+id/ic_local"
         android:text="Local"
-        android:textSize="12sp"
-        android:textColor="?attr/colorPrimary"/>
+        android:textSize="12sp" />
 
     <ImageView
         android:id="@+id/imgProprierty"
@@ -59,8 +57,7 @@
         app:layout_constraintTop_toTopOf="@+id/imgProprierty"
         app:layout_constraintBottom_toBottomOf="@+id/imgProprierty"
         android:text="Proprietário"
-        android:textSize="12sp"
-        android:textColor="?attr/colorPrimary"/>
+        android:textSize="12sp" />
 
 
     <LinearLayout
@@ -73,7 +70,4 @@
         android:background="@drawable/grass"
         android:scaleX="100"
         android:layout_marginTop="-18dp"/>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
