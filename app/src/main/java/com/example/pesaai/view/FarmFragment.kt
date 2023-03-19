@@ -72,7 +72,7 @@ class FarmFragment : Fragment() {
                             "Fazenda excluída com sucesso!!",
                             Toast.LENGTH_SHORT
                         ).show()
-                        findNavController().navigate(R.id.all_fazendas_fragment)
+                        findNavController().navigate(R.id.allFarmsFragment)
                     }
                 }
             }

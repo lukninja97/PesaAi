@@ -5,18 +5,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pesaai.databinding.RowPicketBinding
 import com.example.pesaai.service.model.Farm
-import com.example.pesaai.service.model.Weight
+import com.example.pesaai.service.model.Picket
 
-class PicketAdapter(pickets: List<Weight>?, private val clickListener: (Weight) -> Unit) :
+class PicketAdapter(pickets: List<Picket>?, private val clickListener: (Picket) -> Unit) :
     RecyclerView.Adapter<PicketAdapter.PicketViewHolder>() {
 
-    private var mPicketList: List<Weight> = arrayListOf()
+    private var mPicketList: List<Picket> = arrayListOf()
     private var mFarmList: List<Farm> = arrayListOf()
 
     class PicketViewHolder(private val binding: RowPicketBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(picket: Weight, farm: Farm, clickListener: (Weight) -> Unit) {
+        fun bind(picket: Picket, farm: Farm, clickListener: (Picket) -> Unit) {
             binding.apply {
                 root.setOnClickListener { clickListener(picket) }
             }
@@ -36,7 +36,7 @@ class PicketAdapter(pickets: List<Weight>?, private val clickListener: (Weight) 
 
     override fun getItemCount(): Int = mPicketList.count()
 
-    fun updatePesagens(list: List<Weight>) {
+    fun updatePickets(list: List<Picket>) {
         mPicketList = list
         notifyDataSetChanged()
     }
