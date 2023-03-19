@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pesaai.R
 import com.example.pesaai.databinding.FragmentPesarBinding
@@ -57,9 +58,9 @@ class WeightFragment : Fragment() {
         listeners()
 
         args.farm?.also { farm ->
-            textFazenda.text = farm.name
-            textLocal.text = farm.local
-            textDono.text = farm.proprietor
+//            textFazenda.text = farm.name
+//            textLocal.text = farm.local
+//            textDono.text = farm.proprietor
         }
         editDataPesagem.editText?.setText(getActualDate())
     }
@@ -72,9 +73,16 @@ class WeightFragment : Fragment() {
     private fun setupAdapter() {
         mAdapter = BullAdapter(mViewModel.bullList.value) {}
 
-        val recycler = binding.listPesados
-        recycler.layoutManager = LinearLayoutManager(context)
-        recycler.adapter = mAdapter
+        with(binding.listPesados) {
+            layoutManager = LinearLayoutManager(context)
+            adapter = mAdapter
+            addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
+        }
     }
 
     private fun handleBalance() {
@@ -139,7 +147,7 @@ class WeightFragment : Fragment() {
                                 "Pesagem finalizada com sucesso!!",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            findNavController().navigate(R.id.all_pesagens_fragment)
+                            findNavController().navigate(R.id.allWeightsFragment)
                         }
                     }
                 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pesaai.R
 import com.example.pesaai.databinding.FragmentAllWeightsBinding
@@ -19,7 +20,7 @@ class AllWeightsFragment : Fragment() {
     private val binding: FragmentAllWeightsBinding get() = _binding!!
 
     private val viewModel: AllWeightsViewModel by viewModels()
-    private lateinit var adapter: WeighingAdapter
+    private lateinit var weighingAdapter: WeighingAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,13 +39,20 @@ class AllWeightsFragment : Fragment() {
     }
 
     private fun setRecycler() {
-        adapter = WeighingAdapter(viewModel.weightList.value) {
+        weighingAdapter = WeighingAdapter(viewModel.weightList.value) {
             //fazer uma fragment para exibir as pesagens
         }
 
-        val recycler = binding.recyclerAllPesagens
-        recycler.layoutManager = LinearLayoutManager(context)
-        recycler.adapter = adapter
+        with(binding.recyclerAllPesagens) {
+            layoutManager = LinearLayoutManager(context)
+            adapter = weighingAdapter
+            addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
+        }
     }
 
     private fun listeners() {
@@ -55,7 +63,7 @@ class AllWeightsFragment : Fragment() {
 
     private fun observer() {
         viewModel.weightList.observe(viewLifecycleOwner) {
-            adapter.updateWeights(it)
+            weighingAdapter.updateWeights(it)
 
             binding.textVazio.isVisible = it.isEmpty()
         }

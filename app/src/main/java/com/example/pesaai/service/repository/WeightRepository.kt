@@ -6,7 +6,7 @@ import com.example.pesaai.service.model.relations.WeightWithBulls
 import com.example.pesaai.service.repository.local.PesaAiDataBase
 
 class WeightRepository(var context: Context) {
-    private val mPesaAiDataBase = PesaAiDataBase.getDataBase(context).pesagemDAO()
+    private val mPesaAiDataBase = PesaAiDataBase.getDataBase(context).weightDAO()
 
     suspend fun insertPesagem(weight: Weight) {
         mPesaAiDataBase.insert(weight)

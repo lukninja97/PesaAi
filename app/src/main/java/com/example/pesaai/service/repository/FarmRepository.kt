@@ -5,7 +5,7 @@ import com.example.pesaai.service.model.Farm
 import com.example.pesaai.service.repository.local.PesaAiDataBase
 
 class FarmRepository(var context: Context) {
-    private val mPesaAiDataBase = PesaAiDataBase.getDataBase(context).fazendaDAO()
+    private val mPesaAiDataBase = PesaAiDataBase.getDataBase(context).farmDAO()
 
     suspend fun insertFazenda(farm: Farm) {
         mPesaAiDataBase.insert(farm)

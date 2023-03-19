@@ -3,55 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/menu_fragment">
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
-        android:id="@+id/menu_fragment"
-        android:name="com.example.pesaai.view.MenuFragment"
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.pesaai.view.DashboardFragment"
         android:label="Menu"
-        tools:layout="@layout/fragment_menu">
+        tools:layout="@layout/fragment_dashboard">
+
+        <argument
+            android:name="farm"
+            app:argType="com.example.pesaai.service.model.Farm"
+            app:nullable="true" />
 
         <action
-            android:id="@+id/action_menu_to_fazendas"
-            app:destination="@id/all_fazendas_fragment" />
+            android:id="@+id/dashboard_to_farms"
+            app:destination="@id/allFarmsFragment" />
         <action
-            android:id="@+id/action_menu_to_pesagens"
-            app:destination="@id/all_pesagens_fragment" />
-        <action
-            android:id="@+id/action_menu_to_pesar"
-            app:destination="@id/all_fazendas_fragment" />
+            android:id="@+id/dashboard_to_pickets"
+            app:destination="@id/allPicketsFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/all_fazendas_fragment"
+        android:id="@+id/allFarmsFragment"
         android:name="com.example.pesaai.view.AllFarmsFragment"
         android:label="Fazendas"
         tools:layout="@layout/fragment_all_farms">
 
         <action
-            android:id="@+id/action_fazendas_to_fazenda_form"
-            app:destination="@id/fazenda_fragment" />
+            android:id="@+id/farms_to_farm_form"
+            app:destination="@id/farmFragment" />
         <action
-            android:id="@+id/action_fazendas_to_pesar"
-            app:destination="@id/pesar_fragment" />
-        <argument
-            android:name="origin"
-            app:argType="string"
-            app:nullable="true" />
+            android:id="@+id/farms_to_dashboard"
+            app:destination="@id/dashboardFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/all_pesagens_fragment"
+        android:id="@+id/allWeightsFragment"
         android:name="com.example.pesaai.view.AllWeightsFragment"
         android:label="Pesagens"
         tools:layout="@layout/fragment_all_weights" >
         <action
             android:id="@+id/action_pesagens_to_pesar"
-            app:destination="@id/pesar_fragment" />
+            app:destination="@id/weightFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/pesar_fragment"
+        android:id="@+id/weightFragment"
         android:name="com.example.pesaai.view.WeightFragment"
         android:label="Pesar"
         tools:layout="@layout/fragment_pesar" >
@@ -62,7 +60,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/fazenda_fragment"
+        android:id="@+id/farmFragment"
         android:name="com.example.pesaai.view.FarmFragment"
         android:label="Fazenda"
         tools:layout="@layout/fragment_farm" >
@@ -70,8 +68,11 @@
             android:name="farm"
             app:argType="com.example.pesaai.service.model.Farm"
             app:nullable="true" />
-        <action
-            android:id="@+id/action_fazenda_form_to_fazendas"
-            app:destination="@id/all_fazendas_fragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/allPicketsFragment"
+        android:name="com.example.pesaai.view.AllPicketsFragment"
+        android:label="Pickets"
+        tools:layout="@layout/fragment_all_pickets"/>
 </navigation>

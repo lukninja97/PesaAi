@@ -5,7 +5,7 @@ import com.example.pesaai.service.model.Bull
 import com.example.pesaai.service.repository.local.PesaAiDataBase
 
 class BullRepository(var context: Context) {
-    private val mPesaAiDataBase = PesaAiDataBase.getDataBase(context).boiDAO()
+    private val mPesaAiDataBase = PesaAiDataBase.getDataBase(context).bullDAO()
 
     suspend fun insertBoi(bull: Bull) {
         mPesaAiDataBase.insert(bull)

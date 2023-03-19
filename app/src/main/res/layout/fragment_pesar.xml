@@ -18,62 +18,62 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_fazenda"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:text="Fazenda"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/image_fazenda"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvFarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Fazenda"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/image_fazenda"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/ic_local"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_location"
-            app:layout_constraintStart_toEndOf="@+id/image_fazenda"
-            app:layout_constraintTop_toBottomOf="@+id/text_fazenda" />
+    <ImageView
+        android:id="@+id/ic_local"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_location"
+        app:layout_constraintStart_toEndOf="@+id/image_fazenda"
+        app:layout_constraintTop_toBottomOf="@+id/tvFarm" />
 
-        <TextView
-            android:id="@+id/text_local"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Local"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ic_local"
-            app:layout_constraintStart_toEndOf="@+id/ic_local"
-            app:layout_constraintTop_toTopOf="@+id/ic_local" />
+    <TextView
+        android:id="@+id/tvLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Local"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ic_local"
+        app:layout_constraintStart_toEndOf="@+id/ic_local"
+        app:layout_constraintTop_toTopOf="@+id/ic_local" />
 
-        <ImageView
-            android:id="@+id/id_dono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_dono"
-            app:layout_constraintStart_toEndOf="@+id/image_fazenda"
-            app:layout_constraintTop_toBottomOf="@+id/ic_local" />
+    <ImageView
+        android:id="@+id/imgProprierty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_dono"
+        app:layout_constraintStart_toEndOf="@+id/image_fazenda"
+        app:layout_constraintTop_toBottomOf="@+id/ic_local" />
 
-        <TextView
-            android:id="@+id/text_dono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Proprietário"
-            android:textColor="?attr/colorPrimary"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/id_dono"
-            app:layout_constraintStart_toEndOf="@+id/id_dono"
-            app:layout_constraintTop_toTopOf="@+id/id_dono" />
+    <TextView
+        android:id="@+id/tvEmployee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proprietário"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgProprierty"
+        app:layout_constraintStart_toEndOf="@+id/imgProprierty"
+        app:layout_constraintTop_toTopOf="@+id/imgProprierty" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_data_pesagem"
-            android:layout_width="137dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_fazenda">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_data_pesagem"
+        android:layout_width="137dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFarm">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
