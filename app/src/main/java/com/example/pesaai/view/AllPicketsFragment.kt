@@ -1,31 +1,31 @@
 package com.example.pesaai.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pesaai.databinding.FragmentAllFarmsBinding
-import com.example.pesaai.view.adapter.FarmAdapter
-import com.example.pesaai.viewmodel.AllFarmsViewModel
+import com.example.pesaai.databinding.FragmentAllPicketsBinding
+import com.example.pesaai.view.adapter.PicketAdapter
+import com.example.pesaai.viewmodel.AllPicketsViewModel
 
-class AllFarmsFragment : Fragment() {
-    private var _binding: FragmentAllFarmsBinding? = null
-    private val binding: FragmentAllFarmsBinding get() = _binding!!
+class AllPicketsFragment : Fragment() {
+    private var _binding: FragmentAllPicketsBinding? = null
+    private val binding: FragmentAllPicketsBinding get() = _binding!!
 
-    private val viewModel: AllFarmsViewModel by viewModels()
-    private lateinit var farmAdapter: FarmAdapter
+    private val viewModel: AllPicketsViewModel by viewModels()
+    private lateinit var picketAdapter: PicketAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAllFarmsBinding.inflate(inflater, container, false)
+        _binding = FragmentAllPicketsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,14 +39,13 @@ class AllFarmsFragment : Fragment() {
     }
 
     private fun setRecycler() {
-        farmAdapter = FarmAdapter(viewModel.farmList.value) { farm ->
-            val action = AllFarmsFragmentDirections.farmsToDashboard(farm)
-            findNavController().navigate(action)
+        picketAdapter = PicketAdapter(viewModel.picketList.value) {
+            //TODO: fazer fragment do picket
         }
 
-        with(binding.recyclerAllFazendas) {
+        with(binding.rvAllPickets) {
             layoutManager = LinearLayoutManager(context)
-            adapter = farmAdapter
+            adapter = picketAdapter
             addItemDecoration(
                 DividerItemDecoration(
                     context,
@@ -57,17 +56,17 @@ class AllFarmsFragment : Fragment() {
     }
 
     private fun listeners() {
-        binding.fabAddFazenda.setOnClickListener {
+        binding.fabAddPicket.setOnClickListener {
             val action = AllFarmsFragmentDirections.farmsToFarmForm(null)
             findNavController().navigate(action)
         }
     }
 
     private fun observer() {
-        viewModel.farmList.observe(viewLifecycleOwner) {
-            farmAdapter.updateFarms(it)
+        viewModel.picketList.observe(viewLifecycleOwner) {
+            picketAdapter.updatePickets(it)
 
-            binding.textVazio.isVisible = it.isEmpty()
+            binding.tvEmpty.isVisible = it.isEmpty()
         }
     }
 

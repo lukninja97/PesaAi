@@ -126,9 +126,10 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/verde_escuro"
             android:text="Salvar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/button_delete" />
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_delete"
+            app:layout_constraintTop_toBottomOf="@+id/edit_Proprietario" />
 
         <Button
             android:id="@+id/button_delete"
@@ -136,9 +137,10 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/marrom_claro"
             android:text="Excluir"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/button_save"
-            app:layout_constraintRight_toRightOf="parent" />
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/button_save"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_Proprietario" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
