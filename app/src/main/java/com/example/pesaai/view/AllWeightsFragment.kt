@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pesaai.R
 import com.example.pesaai.databinding.FragmentAllWeightsBinding
-import com.example.pesaai.view.adapter.WeighingAdapter
+import com.example.pesaai.view.adapter.BalanceAdapter
 import com.example.pesaai.viewmodel.AllWeightsViewModel
 
 class AllWeightsFragment : Fragment() {
@@ -20,7 +20,7 @@ class AllWeightsFragment : Fragment() {
     private val binding: FragmentAllWeightsBinding get() = _binding!!
 
     private val viewModel: AllWeightsViewModel by viewModels()
-    private lateinit var weighingAdapter: WeighingAdapter
+    private lateinit var balanceAdapter: BalanceAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,13 +39,13 @@ class AllWeightsFragment : Fragment() {
     }
 
     private fun setRecycler() {
-        weighingAdapter = WeighingAdapter(viewModel.weightList.value) {
+        balanceAdapter = BalanceAdapter(viewModel.weightList.value) {
             //fazer uma fragment para exibir as pesagens
         }
 
-        with(binding.recyclerAllPesagens) {
+        with(binding.rvAllBalances) {
             layoutManager = LinearLayoutManager(context)
-            adapter = weighingAdapter
+            adapter = balanceAdapter
             addItemDecoration(
                 DividerItemDecoration(
                     context,
@@ -56,16 +56,16 @@ class AllWeightsFragment : Fragment() {
     }
 
     private fun listeners() {
-        binding.fabAddPesagem.setOnClickListener {
+        binding.fabAddBalance.setOnClickListener {
             findNavController().navigate(R.id.action_pesagens_to_pesar)
         }
     }
 
     private fun observer() {
         viewModel.weightList.observe(viewLifecycleOwner) {
-            weighingAdapter.updateWeights(it)
+            balanceAdapter.updateWeights(it)
 
-            binding.textVazio.isVisible = it.isEmpty()
+            binding.tvEmpty.isVisible = it.isEmpty()
         }
     }
 

@@ -45,17 +45,17 @@ class FarmFragment : Fragment() {
     }
 
     private fun listeners() = with(binding) {
-        buttonSave.setOnClickListener { handleSave() }
-        buttonDelete.setOnClickListener { handleDelete() }
+        btnSave.setOnClickListener { handleSave() }
+        btnDelete.setOnClickListener { handleDelete() }
 
-        editFazenda.editText?.addTextChangedListener {
-            textFazenda.text = it
+        tilFarm.editText?.addTextChangedListener {
+            tvFarm.text = it
         }
-        editLocal.editText?.addTextChangedListener {
-            textLocal.text = it
+        tilLocation.editText?.addTextChangedListener {
+            tvLocation.text = it
         }
-        editProprietario.editText?.addTextChangedListener {
-            textDono.text = it
+        tilProprietary.editText?.addTextChangedListener {
+            tvProprietary.text = it
         }
     }
 
@@ -81,15 +81,15 @@ class FarmFragment : Fragment() {
     }
 
     private fun handleSave() = with(binding) {
-        val nome = editFazenda.editText?.text.toString()
+        val nome = tilFarm.editText?.text.toString()
 
         if (nome == "") {
             Toast.makeText(context, "Preencha o nome da fazenda", Toast.LENGTH_SHORT).show()
         } else {
             val farm = Farm(
-                name = editFazenda.editText?.text.toString(),
-                local = editLocal.editText?.text.toString(),
-                proprietor = editProprietario.editText?.text.toString(),
+                name = tilFarm.editText?.text.toString(),
+                local = tilLocation.editText?.text.toString(),
+                proprietor = tilProprietary.editText?.text.toString(),
             )
 
             viewLifecycleOwner.lifecycleScope.launch {
@@ -107,9 +107,9 @@ class FarmFragment : Fragment() {
 
                 findNavController().navigateUp()
 
-                editFazenda.editText?.text?.clear()
-                editLocal.editText?.text?.clear()
-                editProprietario.editText?.text?.clear()
+                tilFarm.editText?.text?.clear()
+                tilLocation.editText?.text?.clear()
+                tilProprietary.editText?.text?.clear()
             }
         }
     }
@@ -117,13 +117,13 @@ class FarmFragment : Fragment() {
     private fun observe() {
         viewModel.farm.observe(viewLifecycleOwner) {
             binding.apply {
-                editFazenda.editText?.setText(it.name)
-                editLocal.editText?.setText(it.local)
-                editProprietario.editText?.setText(it.proprietor)
+                tilFarm.editText?.setText(it.name)
+                tilLocation.editText?.setText(it.local)
+                tilProprietary.editText?.setText(it.proprietor)
 
-                textFazenda.text = editFazenda.editText?.text
-                textLocal.text = editLocal.editText?.text
-                textDono.text = editProprietario.editText?.text
+                tvFarm.text = tilFarm.editText?.text
+                tvLocation.text = tilLocation.editText?.text
+                tvProprietary.text = tilProprietary.editText?.text
             }
         }
     }
@@ -135,7 +135,7 @@ class FarmFragment : Fragment() {
             }
         }
 
-        binding.buttonDelete.isVisible = (args.farm?.id != 0)
+        binding.btnDelete.isVisible = (args.farm?.id != 0)
     }
 
     override fun onDestroyView() {

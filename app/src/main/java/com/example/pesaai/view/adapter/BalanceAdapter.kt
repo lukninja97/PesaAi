@@ -7,8 +7,8 @@ import com.example.pesaai.databinding.RowWeightBinding
 import com.example.pesaai.service.model.Farm
 import com.example.pesaai.service.model.Weight
 
-class WeighingAdapter(weights: List<Weight>?, private val clickListener: (Weight) -> Unit) :
-    RecyclerView.Adapter<WeighingAdapter.WeightViewHolder>() {
+class BalanceAdapter(weights: List<Weight>?, private val clickListener: (Weight) -> Unit) :
+    RecyclerView.Adapter<BalanceAdapter.WeightViewHolder>() {
 
     private var mWeightList: List<Weight> = arrayListOf()
     private var mFarmList: List<Farm> = arrayListOf()
@@ -18,7 +18,7 @@ class WeighingAdapter(weights: List<Weight>?, private val clickListener: (Weight
 //            .text = farm.name
 //            textLocal.text = farm.local
 //            textDono.text = farm.proprietor
-            textDataPesagem.text = weight.date
+            tvDateBalance.text = weight.date
 
             root.setOnClickListener { clickListener(weight) }
         }

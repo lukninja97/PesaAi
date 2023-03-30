@@ -17,7 +17,7 @@
             tools:layout_editor_absoluteY="0dp"
             tools:listitem="@layout/row_picket" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvEmpty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/fab_margin"
-            android:backgroundTint="@color/verde_escuro"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_input_add" />

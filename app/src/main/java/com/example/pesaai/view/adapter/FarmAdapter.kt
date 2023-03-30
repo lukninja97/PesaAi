@@ -17,8 +17,8 @@ class FarmAdapter(farms: List<Farm>?, private val clickListener: (Farm) -> Unit)
         fun bind(farm: Farm, clickListener: (Farm) -> Unit) {
             binding.apply {
                 tvFarm.text = farm.name
-                tvEmployee.text = farm.proprietor
-                tvLocal.text = farm.local
+                tvProprietary.text = farm.proprietor
+                tvLocation.text = farm.local
 
                 root.setOnClickListener { clickListener(farm) }
             }

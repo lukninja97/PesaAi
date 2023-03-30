@@ -8,7 +8,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_all_fazendas"
+            android:id="@+id/rvAllFarms"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -17,8 +17,8 @@
             tools:layout_editor_absoluteY="0dp"
             tools:listitem="@layout/row_farm" />
 
-        <TextView
-            android:id="@+id/text_vazio"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvEmpty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sem fazendas..."
@@ -28,12 +28,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_add_fazenda"
+            android:id="@+id/fabAddFarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/fab_margin"
-            android:backgroundTint="@color/md_theme_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_input_add" />

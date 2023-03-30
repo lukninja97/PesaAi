@@ -11,9 +11,10 @@
             android:id="@+id/cardFarm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="0dp"
+            android:layout_margin="4dp"
             app:cardElevation="4dp"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeWidth="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -23,7 +24,7 @@
                     android:id="@+id/imgFarm"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/fazenda"
+                    android:src="@drawable/ic_farm"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,11 +67,12 @@
             android:id="@+id/cardAnimals"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="8dp"
             app:cardElevation="4dp"
             app:layout_constraintEnd_toStartOf="@+id/cardPickets"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardFarm">
+            app:layout_constraintTop_toBottomOf="@+id/cardFarm"
+            app:strokeWidth="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -103,11 +105,12 @@
             android:id="@+id/cardPickets"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_margin="8dp"
             app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardAnimals"
-            app:layout_constraintTop_toBottomOf="@+id/cardFarm">
+            app:layout_constraintTop_toBottomOf="@+id/cardFarm"
+            app:strokeWidth="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -141,10 +144,11 @@
             android:id="@+id/cardHistoric"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="4dp"
+            android:layout_margin="8dp"
             app:cardElevation="4dp"
             app:layout_constraintBottom_toTopOf="@+id/admob"
-            app:layout_constraintTop_toBottomOf="@+id/cardAnimals">
+            app:layout_constraintTop_toBottomOf="@+id/cardAnimals"
+            app:strokeWidth="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

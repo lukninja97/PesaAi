@@ -3,7 +3,6 @@ package com.example.pesaai.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
-import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -37,12 +36,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configureDestination() {
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.imgLogo.visibility = when (destination.id) {
-                R.id.dashboardFragment -> View.VISIBLE
-                else -> View.GONE
-            }
-        }
+//        navController.addOnDestinationChangedListener { _, destination, _ ->
+//            binding.imgLogo.visibility = when (destination.id) {
+//                R.id.dashboardFragment -> View.VISIBLE
+//                else -> View.GONE
+//            }
+//        }
     }
 
     override fun onBackPressed() {

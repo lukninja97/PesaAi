@@ -62,18 +62,18 @@ class WeightFragment : Fragment() {
 //            textLocal.text = farm.local
 //            textDono.text = farm.proprietor
         }
-        editDataPesagem.editText?.setText(getActualDate())
+        tilDateBalance.editText?.setText(getActualDate())
     }
 
     private fun listeners() = with(binding) {
-        buttonPesar.setOnClickListener { handleBalance() }
-        buttonFinalizar.setOnClickListener { handleFinishBalance() }
+        btnToWeight.setOnClickListener { handleBalance() }
+        btnFinishBalance.setOnClickListener { handleFinishBalance() }
     }
 
     private fun setupAdapter() {
         mAdapter = BullAdapter(mViewModel.bullList.value) {}
 
-        with(binding.listPesados) {
+        with(binding.rvCowBalanced) {
             layoutManager = LinearLayoutManager(context)
             adapter = mAdapter
             addItemDecoration(
@@ -87,11 +87,11 @@ class WeightFragment : Fragment() {
 
     private fun handleBalance() {
         binding.apply {
-            if (editBrinco.isNotEmpty() && editPeso.isNotEmpty()) {
+            if (tilCowTag.isNotEmpty() && tilCowWeight.isNotEmpty()) {
                 val bull = Bull(
-                    brinco = editBrinco.editText?.text.toString(),
-                    weight = editPeso.editText?.text.toString().toFloat(),
-                    arroba = editPeso.editText?.text.toString().toFloat() / 15
+                    brinco = tilCowTag.editText?.text.toString(),
+                    weight = tilCowWeight.editText?.text.toString().toFloat(),
+                    arroba = tilCowWeight.editText?.text.toString().toFloat() / 15
                 )
                 bulls.add(bull)
 
@@ -105,17 +105,17 @@ class WeightFragment : Fragment() {
                     println("pesototal${pesototal} arrobatotal${arrobatotal}")
                 }
 
-                textQuantidade.text = bulls.count().toString()
-                textPesoMedio.text = (pesototal / bulls.count()).toString()
-                textArrobaMedia.text = (arrobatotal / bulls.count()).toString()
+                tvCowsBalanced.text = bulls.count().toString()
+                tvMiddleWeight.text = (pesototal / bulls.count()).toString()
+                tvMiddleArroba.text = (arrobatotal / bulls.count()).toString()
 
                 println("boi${bulls}")
 
                 mBullViewModel.insert(bull)
 
-                editBrinco.editText?.text?.clear()
-                editBrinco.editText?.focusable
-                editPeso.editText?.text?.clear()
+                tilCowTag.editText?.text?.clear()
+                tilCowTag.editText?.focusable
+                tilCowWeight.editText?.text?.clear()
             } else {
                 Toast.makeText(context, "Preencha o brinco e o peso", Toast.LENGTH_SHORT).show()
             }
@@ -126,12 +126,12 @@ class WeightFragment : Fragment() {
         args.farm?.also {
             val weight = Weight(
                 farm = it.id,
-                date = editDataPesagem.editText?.text.toString(),
-                employee = editFuncionario.editText?.text.toString(),
-                finality = editFinalidade.editText?.text.toString(),
-                qntTotal = textQuantidade.text.toString().toInt(),
-                middleWeight = textPesoMedio.text.toString().toFloat(),
-                arrobaMedia = textArrobaMedia.text.toString().toFloat(),
+                date = tilDateBalance.editText?.text.toString(),
+                employee = tilEmployee.editText?.text.toString(),
+                finality = tilFinality.editText?.text.toString(),
+                qntTotal = tvCowsBalanced.text.toString().toInt(),
+                middleWeight = tvMiddleWeight.text.toString().toFloat(),
+                arrobaMedia = tvMiddleArroba.text.toString().toFloat(),
                 listBulls = arrayListOf(bulls.toString())
             )
 
@@ -154,11 +154,11 @@ class WeightFragment : Fragment() {
                 .setNeutralButton("Cancelar", null)
                 .show()
 
-            editFuncionario.editText?.text?.clear()
-            editFinalidade.editText?.text?.clear()
-            textQuantidade.text = "Quantidade"
-            textPesoMedio.text = "Peso Médio"
-            textArrobaMedia.text = "Arroba Média"
+            tilEmployee.editText?.text?.clear()
+            tilFinality.editText?.text?.clear()
+            tvCowsBalanced.text = "Quantidade"
+            tvMiddleWeight.text = "Peso Médio"
+            tvMiddleArroba.text = "Arroba Média"
             bulls.removeAll(bulls)
         } ?: run {
 
