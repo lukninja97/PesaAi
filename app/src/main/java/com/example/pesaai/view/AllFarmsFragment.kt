@@ -44,7 +44,7 @@ class AllFarmsFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        with(binding.recyclerAllFazendas) {
+        with(binding.rvAllFarms) {
             layoutManager = LinearLayoutManager(context)
             adapter = farmAdapter
             addItemDecoration(
@@ -57,7 +57,7 @@ class AllFarmsFragment : Fragment() {
     }
 
     private fun listeners() {
-        binding.fabAddFazenda.setOnClickListener {
+        binding.fabAddFarm.setOnClickListener {
             val action = AllFarmsFragmentDirections.farmsToFarmForm(null)
             findNavController().navigate(action)
         }
@@ -67,7 +67,7 @@ class AllFarmsFragment : Fragment() {
         viewModel.farmList.observe(viewLifecycleOwner) {
             farmAdapter.updateFarms(it)
 
-            binding.textVazio.isVisible = it.isEmpty()
+            binding.tvEmpty.isVisible = it.isEmpty()
         }
     }
 

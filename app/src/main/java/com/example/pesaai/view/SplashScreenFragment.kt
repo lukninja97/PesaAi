@@ -8,23 +8,22 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.pesaai.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SplashScreenFragment : Fragment() {
 
-    private var _binding: FragmentSplashBinding? = null
-    private val binding get() = _binding!!
+//    private var _binding: FragmentSplashBinding? = null
+//    private val binding get() = _binding!!
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        setFullScreen()
-        _binding = FragmentSplashBinding.inflate(inflater)
-
-        return binding.root
-    }
+//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+//                              savedInstanceState: Bundle?): View {
+//        setFullScreen()
+////        _binding = FragmentSplashBinding.inflate(inflater)
+////
+////        return binding.root
+//    }
 
     override fun onResume() {
         super.onResume()
@@ -56,6 +55,6 @@ class SplashScreenFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+//        _binding = null
     }
 }

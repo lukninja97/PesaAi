@@ -9,7 +9,7 @@
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/id_cow_pesado"
+            android:id="@+id/imgFarm"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="5dp"
@@ -17,63 +17,60 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_fazenda"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvFarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="Fazenda"
-            android:textColor="?attr/colorPrimary"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/id_cow_pesado"
+            app:layout_constraintStart_toEndOf="@+id/imgFarm"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/id_brinco"
+            android:id="@+id/imgLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_location"
-            app:layout_constraintStart_toEndOf="@+id/id_cow_pesado"
-            app:layout_constraintTop_toBottomOf="@+id/text_fazenda" />
+            app:layout_constraintStart_toEndOf="@+id/imgFarm"
+            app:layout_constraintTop_toBottomOf="@+id/tvFarm" />
 
-        <TextView
-            android:id="@+id/text_local"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Local"
-            android:textColor="?attr/colorPrimary"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/id_brinco"
-            app:layout_constraintStart_toEndOf="@+id/id_brinco"
-            app:layout_constraintTop_toTopOf="@+id/id_brinco" />
+            app:layout_constraintBottom_toBottomOf="@+id/imgLocation"
+            app:layout_constraintStart_toEndOf="@+id/imgLocation"
+            app:layout_constraintTop_toTopOf="@+id/imgLocation" />
 
         <ImageView
-            android:id="@+id/id_peso"
+            android:id="@+id/imgProprietary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_dono"
-            app:layout_constraintStart_toEndOf="@+id/id_cow_pesado"
-            app:layout_constraintTop_toBottomOf="@+id/id_brinco" />
+            app:layout_constraintStart_toEndOf="@+id/imgFarm"
+            app:layout_constraintTop_toBottomOf="@+id/imgLocation" />
 
-        <TextView
-            android:id="@+id/text_dono"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvProprietary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Proprietário"
-            android:textColor="?attr/colorPrimary"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/id_peso"
-            app:layout_constraintStart_toEndOf="@+id/id_peso"
-            app:layout_constraintTop_toTopOf="@+id/id_peso" />
+            app:layout_constraintBottom_toBottomOf="@+id/imgProprietary"
+            app:layout_constraintStart_toEndOf="@+id/imgProprietary"
+            app:layout_constraintTop_toTopOf="@+id/imgProprietary" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_fazenda"
+            android:id="@+id/tilFarm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/id_cow_pesado">
+            app:layout_constraintTop_toBottomOf="@+id/imgFarm">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -83,15 +80,14 @@
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_local"
+            android:id="@+id/tilLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_fazenda"
+            app:layout_constraintTop_toBottomOf="@+id/tilFarm"
             app:startIconDrawable="@drawable/ic_location">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -103,13 +99,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_Proprietario"
+            android:id="@+id/tilProprietary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_local"
+            app:layout_constraintTop_toBottomOf="@+id/tilLocation"
             app:startIconDrawable="@drawable/ic_dono">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -120,27 +116,25 @@
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/button_save"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/verde_escuro"
+            android:layout_marginTop="8dp"
             android:text="Salvar"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button_delete"
-            app:layout_constraintTop_toBottomOf="@+id/edit_Proprietario" />
+            app:layout_constraintStart_toEndOf="@+id/btnDelete"
+            app:layout_constraintTop_toBottomOf="@+id/tilProprietary" />
 
-        <Button
-            android:id="@+id/button_delete"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/marrom_claro"
-            android:text="Excluir"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/button_save"
+            android:text="Excluir"
+            app:layout_constraintEnd_toStartOf="@+id/btnSave"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_Proprietario" />
+            app:layout_constraintTop_toBottomOf="@+id/tilProprietary" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

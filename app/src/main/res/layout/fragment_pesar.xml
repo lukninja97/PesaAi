@@ -10,70 +10,67 @@
         tools:context=".view.WeightFragment">
 
         <ImageView
-            android:id="@+id/image_fazenda"
+            android:id="@+id/imgFarm"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="0dp"
-            android:src="@drawable/fazenda"
+            android:src="@drawable/ic_farm"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvFarm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="Fazenda"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/image_fazenda"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvFarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Fazenda"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/imgFarm"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ic_local"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_location"
-        app:layout_constraintStart_toEndOf="@+id/image_fazenda"
-        app:layout_constraintTop_toBottomOf="@+id/tvFarm" />
+        <ImageView
+            android:id="@+id/icLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_location"
+            app:layout_constraintStart_toEndOf="@+id/imgFarm"
+            app:layout_constraintTop_toBottomOf="@+id/tvFarm" />
 
-    <TextView
-        android:id="@+id/tvLocal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Local"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/ic_local"
-        app:layout_constraintStart_toEndOf="@+id/ic_local"
-        app:layout_constraintTop_toTopOf="@+id/ic_local" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Local"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/icLocation"
+            app:layout_constraintStart_toEndOf="@+id/icLocation"
+            app:layout_constraintTop_toTopOf="@+id/icLocation" />
 
-    <ImageView
-        android:id="@+id/imgProprierty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_dono"
-        app:layout_constraintStart_toEndOf="@+id/image_fazenda"
-        app:layout_constraintTop_toBottomOf="@+id/ic_local" />
+        <ImageView
+            android:id="@+id/imgProprietary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_dono"
+            app:layout_constraintStart_toEndOf="@+id/imgFarm"
+            app:layout_constraintTop_toBottomOf="@+id/icLocation" />
 
-    <TextView
-        android:id="@+id/tvEmployee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Proprietário"
-        android:textColor="?attr/colorPrimary"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imgProprierty"
-        app:layout_constraintStart_toEndOf="@+id/imgProprierty"
-        app:layout_constraintTop_toTopOf="@+id/imgProprierty" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvProprietary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proprietário"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgProprietary"
+            app:layout_constraintStart_toEndOf="@+id/imgProprietary"
+            app:layout_constraintTop_toTopOf="@+id/imgProprietary" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edit_data_pesagem"
-        android:layout_width="137dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFarm">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDateBalance"
+            android:layout_width="137dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFarm">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -83,14 +80,13 @@
                 android:inputType="date" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_funcionario"
+            android:id="@+id/tilEmployee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_fazenda"
+            app:layout_constraintTop_toBottomOf="@+id/imgFarm"
             app:startIconDrawable="@drawable/ic_dono">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -102,13 +98,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_finalidade"
+            android:id="@+id/tilFinality"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_funcionario"
-            app:startIconDrawable="@drawable/ic_finalidade">
+            app:layout_constraintTop_toBottomOf="@+id/tilEmployee">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -119,104 +114,101 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_pesados"
+            android:id="@+id/rvCowBalanced"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/edit_brinco"
-            app:layout_constraintEnd_toStartOf="@id/edit_peso"
+            app:layout_constraintBottom_toTopOf="@+id/tilCowTag"
+            app:layout_constraintEnd_toStartOf="@id/tilCowWeight"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_finalidade"
+            app:layout_constraintTop_toBottomOf="@+id/tilFinality"
             tools:listitem="@layout/row_bulls" />
 
         <ImageView
-            android:id="@+id/ic_quantidade"
+            android:id="@+id/imgCow"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
-            android:src="@drawable/cowbrincoc"
-            app:layout_constraintBottom_toTopOf="@+id/text_quantidade"
+            android:src="@drawable/ic_coww"
+            app:layout_constraintBottom_toTopOf="@+id/tvCowsBalanced"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/list_pesados"
-            app:layout_constraintTop_toBottomOf="@+id/edit_finalidade" />
+            app:layout_constraintStart_toEndOf="@+id/rvCowBalanced"
+            app:layout_constraintTop_toBottomOf="@+id/tilFinality" />
 
-        <TextView
-            android:id="@+id/text_quantidade"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvCowsBalanced"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Quantidade"
-            android:textColor="?attr/colorPrimary"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/ic_arroba_media"
+            app:layout_constraintBottom_toTopOf="@+id/imgWeight"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/list_pesados"
-            app:layout_constraintTop_toBottomOf="@+id/ic_quantidade" />
+            app:layout_constraintStart_toEndOf="@+id/rvCowBalanced"
+            app:layout_constraintTop_toBottomOf="@+id/imgCow" />
 
         <ImageView
-            android:id="@+id/ic_arroba_media"
+            android:id="@+id/imgWeight"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/peso"
-            app:layout_constraintBottom_toTopOf="@+id/text_peso_medio"
+            android:src="@drawable/ic_weight"
+            app:layout_constraintBottom_toTopOf="@+id/tvMiddleWeight"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/list_pesados"
-            app:layout_constraintTop_toBottomOf="@+id/text_quantidade" />
+            app:layout_constraintStart_toEndOf="@+id/rvCowBalanced"
+            app:layout_constraintTop_toBottomOf="@+id/tvCowsBalanced" />
 
-        <TextView
-            android:id="@+id/text_peso_medio"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvMiddleWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Peso Médio"
-            android:textColor="?attr/colorPrimary"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/ic_peso_medio"
+            app:layout_constraintBottom_toTopOf="@+id/imgArroba"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/list_pesados"
-            app:layout_constraintTop_toBottomOf="@+id/ic_arroba_media" />
+            app:layout_constraintStart_toEndOf="@+id/rvCowBalanced"
+            app:layout_constraintTop_toBottomOf="@+id/imgWeight" />
 
         <ImageView
-            android:id="@+id/ic_peso_medio"
+            android:id="@+id/imgArroba"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_arroba"
-            app:layout_constraintBottom_toTopOf="@+id/text_arroba_media"
+            app:layout_constraintBottom_toTopOf="@+id/tvMiddleArroba"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/list_pesados"
-            app:layout_constraintTop_toBottomOf="@+id/text_peso_medio" />
+            app:layout_constraintStart_toEndOf="@+id/rvCowBalanced"
+            app:layout_constraintTop_toBottomOf="@+id/tvMiddleWeight" />
 
-        <TextView
-            android:id="@+id/text_arroba_media"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvMiddleArroba"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Arroba Média"
-            android:textColor="?attr/colorPrimary"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/button_finalizar"
+            app:layout_constraintBottom_toTopOf="@+id/btnFinishBalance"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/list_pesados"
-            app:layout_constraintTop_toBottomOf="@+id/ic_peso_medio" />
+            app:layout_constraintStart_toEndOf="@+id/rvCowBalanced"
+            app:layout_constraintTop_toBottomOf="@+id/imgArroba" />
 
-        <Button
-            android:id="@+id/button_finalizar"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFinishBalance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="150dp"
-            android:backgroundTint="@color/verde_escuro"
+            android:backgroundTint="@color/md_theme_primary"
             android:text="Finalizar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/list_pesados"
+            app:layout_constraintLeft_toRightOf="@+id/rvCowBalanced"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_arroba_media" />
+            app:layout_constraintTop_toBottomOf="@+id/tvMiddleArroba" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_brinco"
+            android:id="@+id/tilCowTag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/button_pesar"
+            app:layout_constraintBottom_toTopOf="@+id/btnToWeight"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/edit_peso"
-            app:layout_constraintTop_toBottomOf="@+id/list_pesados"
+            app:layout_constraintRight_toLeftOf="@+id/tilCowWeight"
+            app:layout_constraintTop_toBottomOf="@+id/rvCowBalanced"
             app:startIconDrawable="@drawable/ic_tag">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -228,17 +220,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_peso"
+            android:id="@+id/tilCowWeight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@id/button_pesar"
-            app:layout_constraintLeft_toRightOf="@+id/edit_brinco"
+            app:layout_constraintBottom_toTopOf="@id/btnToWeight"
+            app:layout_constraintLeft_toRightOf="@+id/tilCowTag"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/list_pesados"
-            app:startIconDrawable="@drawable/ic_peso">
+            app:layout_constraintTop_toBottomOf="@+id/rvCowBalanced"
+            app:startIconDrawable="@drawable/ic_weight">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -248,11 +240,11 @@
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/button_pesar"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/verde_escuro"
+            android:backgroundTint="@color/md_theme_primary"
             android:text="Pesar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

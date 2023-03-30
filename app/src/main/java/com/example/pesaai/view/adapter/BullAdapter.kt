@@ -14,9 +14,9 @@ class BullAdapter(bulls: List<WeightWithBulls>?, private val clickListener: (Bul
 
     class BullsViewHolder(private val binding: RowBullsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(bull: Bull, clickListener: (Bull) -> Unit) = with(binding) {
-            textBrinco.text = bull.brinco
-            textPeso.text = bull.weight.toString()
-            textArroba.text = bull.arroba.toString()
+            tvTag.text = bull.brinco
+            tvWeight.text = bull.weight.toString()
+            tvArroba.text = bull.arroba.toString()
 
             root.setOnClickListener { clickListener(bull) }
         }
